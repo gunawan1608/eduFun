@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../constants/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
@@ -29,13 +30,13 @@ class CustomButton extends StatelessWidget {
       width: width,
       height: height ?? 60,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         boxShadow: isEnabled
             ? [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 8,
-                  offset: const Offset(0, 4),
+                  color: Colors.black.withOpacity(0.15),
+                  blurRadius: 12,
+                  offset: const Offset(0, 6),
                 ),
               ]
             : null,
@@ -47,12 +48,11 @@ class CustomButton extends StatelessWidget {
           foregroundColor: textColor ?? Colors.white,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(24),
           ),
-          textStyle: const TextStyle(
+          textStyle: GoogleFonts.poppins(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            fontFamily: 'ComicNeue',
           ),
         ),
         child: Row(

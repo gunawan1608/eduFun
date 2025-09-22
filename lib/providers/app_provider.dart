@@ -155,7 +155,7 @@ class AppProvider extends ChangeNotifier {
       }
     });
     
-    return _userProgress.length > 0 
+    return _userProgress.isNotEmpty 
         ? (totalProgress / (_userProgress.length * 100) * 100).round()
         : 0;
   }

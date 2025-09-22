@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_strings.dart';
 import '../widgets/subject_card.dart';
 import '../widgets/custom_button.dart';
+import '../widgets/background_decoration.dart';
 import 'subject_screen.dart';
 import 'progress_screen.dart';
 
@@ -13,27 +15,29 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Header
-              _buildHeader(),
-              const SizedBox(height: 30),
-              
-              // Greeting
-              _buildGreeting(),
-              const SizedBox(height: 30),
-              
-              // Subject Cards
-              _buildSubjectGrid(context),
-              const SizedBox(height: 30),
-              
-              // Progress Button
-              _buildProgressButton(context),
-            ],
+      body: BackgroundDecoration(
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Header
+                _buildHeader(),
+                const SizedBox(height: 30),
+                
+                // Greeting
+                _buildGreeting(),
+                const SizedBox(height: 30),
+                
+                // Subject Cards
+                _buildSubjectGrid(context),
+                const SizedBox(height: 30),
+                
+                // Progress Button
+                _buildProgressButton(context),
+              ],
+            ),
           ),
         ),
       ),
@@ -61,19 +65,17 @@ class HomeScreen extends StatelessWidget {
           children: [
             Text(
               AppStrings.appName,
-              style: const TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: AppColors.textPrimary,
-                fontFamily: 'ComicNeue',
               ),
             ),
             Text(
               AppStrings.appSubtitle,
-              style: const TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 14,
                 color: AppColors.textSecondary,
-                fontFamily: 'ComicNeue',
               ),
             ),
           ],
@@ -97,22 +99,20 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Halo, Adik! 👋',
-            style: TextStyle(
-              fontSize: 20,
+            style: GoogleFonts.poppins(
+              fontSize: 22,
               fontWeight: FontWeight.bold,
               color: Colors.white,
-              fontFamily: 'ComicNeue',
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
+          Text(
             'Yuk belajar sambil bermain!',
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 16,
               color: Colors.white,
-              fontFamily: 'ComicNeue',
             ),
           ),
         ],
@@ -124,13 +124,12 @@ class HomeScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           AppStrings.pilihMataPelajaran,
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: AppColors.textPrimary,
-            fontFamily: 'ComicNeue',
           ),
         ),
         const SizedBox(height: 16),

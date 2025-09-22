@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../constants/app_colors.dart';
-import '../constants/app_strings.dart';
-import '../widgets/custom_button.dart';
+import '../widgets/background_decoration.dart';
+import '../widgets/reward_widget.dart';
 
 class ProgressScreen extends StatelessWidget {
   const ProgressScreen({super.key});
@@ -12,28 +13,29 @@ class ProgressScreen extends StatelessWidget {
       backgroundColor: AppColors.background,
       appBar: AppBar(
         backgroundColor: AppColors.accent,
-        title: const Text(
+        title: Text(
           'Progress Belajar',
-          style: TextStyle(
-            fontFamily: 'ComicNeue',
+          style: GoogleFonts.poppins(
             fontWeight: FontWeight.bold,
           ),
         ),
         elevation: 0,
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildOverallProgress(),
-            const SizedBox(height: 30),
-            _buildSubjectProgress(),
-            const SizedBox(height: 30),
-            _buildAchievements(),
-            const SizedBox(height: 30),
-            _buildRecentActivity(),
-          ],
+      body: BackgroundDecoration(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildOverallProgress(),
+              const SizedBox(height: 30),
+              _buildSubjectProgress(),
+              const SizedBox(height: 30),
+              _buildAchievements(),
+              const SizedBox(height: 30),
+              _buildRecentActivity(),
+            ],
+          ),
         ),
       ),
     );
@@ -66,13 +68,12 @@ class ProgressScreen extends StatelessWidget {
             color: Colors.white,
           ),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             'Progress Keseluruhan',
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Colors.white,
-              fontFamily: 'ComicNeue',
             ),
           ),
           const SizedBox(height: 20),
@@ -100,19 +101,17 @@ class ProgressScreen extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           value,
-          style: const TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.white,
-            fontFamily: 'ComicNeue',
           ),
         ),
         Text(
           label,
-          style: const TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 12,
             color: Colors.white,
-            fontFamily: 'ComicNeue',
           ),
           textAlign: TextAlign.center,
         ),
@@ -124,13 +123,12 @@ class ProgressScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Progress per Mata Pelajaran',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: AppColors.textPrimary,
-            fontFamily: 'ComicNeue',
           ),
         ),
         const SizedBox(height: 16),
@@ -174,11 +172,10 @@ class ProgressScreen extends StatelessWidget {
                 children: [
                   Text(
                     subject,
-                    style: const TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: AppColors.textPrimary,
-                      fontFamily: 'ComicNeue',
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -194,11 +191,10 @@ class ProgressScreen extends StatelessWidget {
             const SizedBox(width: 16),
             Text(
               '$progress%',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: color,
-                fontFamily: 'ComicNeue',
               ),
             ),
           ],
@@ -211,13 +207,12 @@ class ProgressScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Pencapaian Terbaru',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: AppColors.textPrimary,
-            fontFamily: 'ComicNeue',
           ),
         ),
         const SizedBox(height: 16),
@@ -256,11 +251,10 @@ class ProgressScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               title,
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
                 color: color,
-                fontFamily: 'ComicNeue',
               ),
               textAlign: TextAlign.center,
             ),
@@ -274,13 +268,12 @@ class ProgressScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Aktivitas Terakhir',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: AppColors.textPrimary,
-            fontFamily: 'ComicNeue',
           ),
         ),
         const SizedBox(height: 16),
@@ -321,19 +314,17 @@ class ProgressScreen extends StatelessWidget {
                 children: [
                   Text(
                     activity,
-                    style: const TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: AppColors.textPrimary,
-                      fontFamily: 'ComicNeue',
                     ),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     time,
-                    style: const TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 12,
                       color: AppColors.textSecondary,
-                      fontFamily: 'ComicNeue',
                     ),
                   ),
                 ],

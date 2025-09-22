@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'screens/home_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'screens/main_navigation_screen.dart';
 import 'constants/app_colors.dart';
 import 'constants/app_strings.dart';
 import 'providers/app_provider.dart';
@@ -26,103 +27,102 @@ class EduFunApp extends StatelessWidget {
         title: AppStrings.appName,
         debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.cyan,
         primaryColor: AppColors.primary,
         scaffoldBackgroundColor: AppColors.background,
-        fontFamily: 'Roboto',
         
         // AppBar Theme
-        appBarTheme: const AppBarTheme(
+        appBarTheme: AppBarTheme(
           backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
           elevation: 0,
           centerTitle: true,
-          titleTextStyle: TextStyle(
-            fontSize: 20,
+          titleTextStyle: GoogleFonts.poppins(
+            fontSize: 22,
             fontWeight: FontWeight.bold,
-            fontFamily: 'Roboto',
+            color: Colors.white,
           ),
         ),
         
-        // Card Theme
+        // Card Theme - Modern dengan rounded corners dan shadow lembut
         cardTheme: CardTheme(
-          elevation: 4,
+          elevation: 8,
+          shadowColor: Colors.black.withOpacity(0.1),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(20),
           ),
           color: AppColors.cardBackground,
+          margin: const EdgeInsets.all(8),
         ),
         
-        // Text Theme
-        textTheme: const TextTheme(
-          headlineLarge: TextStyle(
+        // Text Theme dengan Google Fonts Poppins
+        textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+          headlineLarge: GoogleFonts.poppins(
             fontSize: 32,
             fontWeight: FontWeight.bold,
             color: AppColors.textPrimary,
-            fontFamily: 'Roboto',
           ),
-          headlineMedium: TextStyle(
+          headlineMedium: GoogleFonts.poppins(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: AppColors.textPrimary,
-            fontFamily: 'Roboto',
           ),
-          headlineSmall: TextStyle(
+          headlineSmall: GoogleFonts.poppins(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: AppColors.textPrimary,
-            fontFamily: 'Roboto',
           ),
-          bodyLarge: TextStyle(
+          bodyLarge: GoogleFonts.poppins(
             fontSize: 16,
             color: AppColors.textPrimary,
-            fontFamily: 'Roboto',
           ),
-          bodyMedium: TextStyle(
+          bodyMedium: GoogleFonts.poppins(
             fontSize: 14,
             color: AppColors.textSecondary,
-            fontFamily: 'Roboto',
           ),
         ),
         
-        // Button Theme
+        // Button Theme - Tombol besar dan ramah anak
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
             foregroundColor: Colors.white,
-            elevation: 4,
+            elevation: 6,
+            shadowColor: Colors.black.withOpacity(0.2),
+            minimumSize: const Size(double.infinity, 56), // Tinggi 56px
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(24),
             ),
-            textStyle: const TextStyle(
-              fontSize: 16,
+            textStyle: GoogleFonts.poppins(
+              fontSize: 18,
               fontWeight: FontWeight.bold,
-              fontFamily: 'Roboto',
             ),
           ),
         ),
         
-        // Input Decoration Theme
+        // Input Decoration Theme - Modern rounded design
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide.none,
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide(
-              color: Colors.grey.withOpacity(0.3),
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(
-              color: AppColors.primary,
+              color: AppColors.secondary.withOpacity(0.3),
               width: 2,
             ),
           ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(
+              color: AppColors.primary,
+              width: 3,
+            ),
+          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         ),
         
         // Progress Indicator Theme
@@ -190,11 +190,11 @@ class _SplashScreenState extends State<SplashScreen>
       final appProvider = Provider.of<AppProvider>(context, listen: false);
       await appProvider.initializeApp();
       
-      // Navigate to home screen
+      // Navigate to main navigation screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
+          builder: (context) => const MainNavigationScreen(),
         ),
       );
     }
@@ -242,22 +242,20 @@ class _SplashScreenState extends State<SplashScreen>
                       ),
                     ),
                     const SizedBox(height: 30),
-                    const Text(
+                    Text(
                       AppStrings.appName,
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         fontSize: 36,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        fontFamily: 'Roboto',
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const Text(
+                    Text(
                       AppStrings.appSubtitle,
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         fontSize: 18,
                         color: Colors.white,
-                        fontFamily: 'Roboto',
                       ),
                     ),
                     const SizedBox(height: 50),
